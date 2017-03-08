@@ -1,0 +1,104 @@
+<!-- form-register.html -->
+<div>
+  <h3 class="text-center">Register Your Account</h3>
+  <br><br>
+  <label for="deployed">Have you met with Sheryl Sabol yet?</label>
+  <br>
+<!-- Has the code been deployed section -->
+  <!-- SS Used name = deployed so the radio buttons will not both be selected -->
+  <label class="radio-inline"><input type="radio" name="deployed" value=
+  "yes" ng-model="formData.deployed">Yes</label>
+  <label class="radio-inline"><input  type="radio" name="deployed" value=
+  "no" ng-model="formData.deployed">No</label>
+</div>
+<br>
+<!-- If it has been deployed, what date section -->
+<div  ng-if="formData.deployed=='yes'" class="form-group" >
+  <p><label>When did you and Sheryl Sabol meet?</label></p>
+<!-- Angular Date Picker -->
+  <div ng-controller="DatepickerPopupDemoCtrl">
+    <div class="row">
+      <p id="datepicker" class="input-group">
+        <button type="button" class="btn btn-primary btn-xs" ng-click="open1()">
+          <i class="glyphicon glyphicon-calendar"></i>
+        </button>
+        <input id="datepickerbox" type="text" size="20" uib-datepicker-popup="shortDate"
+        ng-model="formData.date" is-open="popup1.opened" datepicker-options="dateOptions"
+        ng-required="true" close-text="Close" popup-placement="right-top" placeholder="Click on Calendar"
+        alt-input-formats="altInputFormats" />
+      </p>
+    </div>
+  </div>
+<!--  End date picker & a div to make sure date picker disappears if no date -->
+  <div class="form-group" ng-if="!mustShow">
+  </div>
+</div>
+<!-- Who's the owner section -->
+<div class="form-group">
+  <p>
+    <label class="data-form" for="owner">When you met Sheryl Sabol and seeked her expertise did you as an individual or did you represent a company?</label>
+  </p>
+  <!-- SS Used name = deployed so the radio buttons will not both be selected -->
+  <label class="radio-inline" >
+    <input type="radio"  value="individual" name="owner" ng-model="formData.owner">Individual
+  </label>
+  <label class="radio-inline" >
+    <input type="radio"   value="company" name="owner" ng-model="formData.owner">Company
+  </label>
+</div>
+<!-- Individual Name Section -->
+<div ng-show="formData.owner=='individual'">
+  <p class="form-group">
+    <label>First and Last Name</label>
+  </p>
+  <label>
+    <input ng-model="formData.firstName" size="25" type="text" placeholder="First Name" id="firstName">
+    <input ng-model="formData.lastName" size="25" type="text" placeholder="Last Name" id="lastName">
+  </label>
+</div>
+<!-- Company Name Section -->
+<div class="form-group" ng-show="formData.owner=='company'">
+    <p>
+      <label>What is the name of the company?</label>
+    </p>
+    <label>
+      <input ng-model="formData.companyName" size="50" type="text" placeholder="Company Name" id="companyName">
+    </label>
+</div>
+<!-- Citizenship or Country Section -->
+<div class="form-group" ng-show="formData.owner=='individual'">
+    <p>
+      <br>
+      <label>What is your citizenship?</label>
+    </p>
+</div>
+<div  ng-show="formData.owner=='company'">
+    <p>
+      <label>In which country is the company based?</label>
+    </p>
+</div>
+<div class="form-group" ng-show="formData.owner=='individual'" ng-controller="CountryCtrl">
+  <select ng-model="formData.nationality"  class="input-sm" >
+   <option value="">-- Select a Country --</option>
+   <option ng-repeat="country in countries" value="{{country.code}}">{{country.name}}</option>
+  </select>
+</div>
+<div class="form-group" ng-show="formData.owner=='company'" ng-controller="CountryCtrl">
+  <select ng-model="formData.origin" class="input-sm" >
+    <option value="">-- Select a Country --</option>
+    <option ng-repeat="country in countries" value="{{country.code}}">{{country.name}}</option>
+  </select>
+</div>
+<!-- Next and Reset Buttons -->
+<br>
+<div class="form-group row">
+  <button value="Reset" class="btn btn-default btn-large center"
+  type="reset"
+  ng-click="resetform()">Reset
+  </button>
+<div class="col-xs-6 col-xs-offset-3">
+    <a ui-sref="form.payment" class="btn btn-block btn-primary">
+    Next Section
+      <span class="glyphicon glyphicon-circle-arrow-right"></span>
+    </a>
+</div>

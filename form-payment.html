@@ -1,0 +1,52 @@
+<!-- form-payment.html   -->
+<div>
+  <div>
+    <h3 class="text-center">Payment Details</h3>
+    <img class="center-block" src=" http://www.psdgraphics.com/file/credit-card-perspective.jpg"
+    width="20%" height="auto">
+    <br><br><br>
+  </div>
+  <div>
+    <div class="form-group">
+      <label>
+        <span>Name on Card</span>
+        <input id="cardName" size="20"  ng-model="formData.stripeName"type="text" ng-required placeholder="Enter Full Name" required>
+      </label>
+    </div>
+    <div class="form-group">
+      <label><span>Card Number</span> <input id="cardNumber"type="text" size="16"  ng-model="formData.stripeCardNumber"
+        ng-required placeholder="xxxxxxxxxxxxx1234" ></label>
+    </div>
+    <div class="form-group">
+      <label>
+        <span>Expiration (MM/YY)</span>
+        <input id="cardMonth"data-stripe="exp_month" size="2" type="text" ng-model="formData.stripeExpMonth" placeholder="Mo">
+      </label>
+      <span>/</span>
+      <input id="cardYear" data-stripe="exp_year" size="2" type="text" ng-model="formData.stripeExpYear" ng-required placeholder="Yr">
+    </div>
+    <div class="form-group">
+      <label>
+        <span>CVC</span>
+        <input data-stripe="cvc" size="3" id="cardCVC" type="text" ng-model="formData.stripCvc" ng-required placeholder="000">
+      </label>
+    </div>
+    <div class="form-group">
+      <label>
+        <span>Billing Zip</span>
+        <input data-stripe="address_zip" id="cardZip" size="5" type="text"  ng-model="formData.stripeZipCode" ng-required placeholder="00000">
+      </label>
+    </div>
+  </div>
+</div>
+<br>
+<div class="form-group row">
+  <button value="Reset" class="btn btn-default btn-large center" type="reset" ng-click="resetform()">Reset
+  </button>
+  <div class="col-xs-6 col-xs-offset-3">
+    <a ui-sref="form.confirm" class="btn btn-block btn-primary">
+    Next Section
+      <span class="glyphicon glyphicon-circle-arrow-right"></span>
+    </a>
+  </div>
+</div>

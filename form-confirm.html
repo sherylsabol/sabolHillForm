@@ -1,0 +1,51 @@
+<!-- form-confirm.html  -->
+<div class="form-group">
+  <h3 class="text-center">Confirm Details and Submit Payment</h3>
+  <br><br>
+  <div ng-model="form-group">
+    <p><label>Individual Name: </label> {{ owner_first }} {{ owner_last }}
+    </p>
+    <p><label>Company Name: </label> {{ owner_company }}
+    </p>
+  </div>
+  <div ng-model="form-group" >
+    <p><label>Expertise Number: </label> {{ Expertise Number }}
+    </p>
+  </div>
+  <div ng-model="form-group">
+    <p><label> SHA: </label> {{ SHA }}
+    </p>
+  </div>
+  <div ng-model="form-group">
+    <button >Download Meeting Notes</button>
+  </div>
+<!-- </div> -->
+  <br>
+  <!-- <div> -->
+  <div ng-model="form-group">
+    <p><label>Card: </label> {{ card }}
+    </p>
+  </div>
+  <div ng-model="form-group">
+    <p><label>Card Number: </label> {{ card_number }}
+    </p>
+  </div>
+  <div ng-model="form-group">
+    <p><label>Expiration Date: </label> {{ card_expiration }}
+    </p>
+  </div>
+  <div ng-model="form-group">
+    <p><label>Cardholder Name: </label> {{ cardholder_first }} {{ cardholder_last }}
+    </p>
+  </div>
+  <div>
+      <p class="text-right"> <label>Total </label> {{$999.00}} <p>
+  </div>
+  <br>
+</div>
+<div class="col-xs-6 col-xs-offset-3">
+    <a ui-sref="form.payment" class="btn  btn-block btn-primary form-group submit" type="submit" value="Submit">
+    Submit Payment
+      <span class="glyphicons glyphicons-check" id="white"></span>
+    </a>
+</div>

@@ -1,0 +1,29 @@
+<!-- form.html -->
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <div id="form-container">
+      <div class="page-header text-center">
+        <h1 id="shlogo">
+          <img src="s1.jpg" width="100px" height="auto">Sabol Hill Checkout
+        </h1>
+        <br><br>
+        <!-- the links to our nested states using relative paths -->
+        <!-- add the active class if the state matches our ui-sref -->
+        <div id="status-buttons" class="text-center">
+          <a ui-sref-active="active" ui-sref=".register"><span>1</span> Register Your Account </a>
+          <a ui-sref-active="active" ui-sref=".payment"><span>2</span> Payment Details </a>
+          <a ui-sref-active="active" ui-sref=".confirm"><span>3</span> Confirm and Submit </a>
+        </div>
+      </div>
+      <!-- use ng-submit to catch the form submission and use our Angular function -->
+      <form id="signup-form" ng-submit="processForm()" >
+      <!-- our nested state views will be injected here -->
+      <div id="form-views" ui-view></div>
+      </form>
+    </div>
+  <!-- show our formData as it is being typed -->
+    <pre>
+    {{ formData }}
+    </pre>
+  </div>
+</div>
